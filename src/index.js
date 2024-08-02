@@ -29,4 +29,4 @@ app.use(
 
 await new Promise((resolve) => httpServer.listen({ port: 5000 }, resolve));
 
-console.log(`Server ready at http://localhost:5000`);
+export default app;
