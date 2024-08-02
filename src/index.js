@@ -4,8 +4,8 @@ import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHt
 import express from "express";
 import http from "http";
 import cors from "cors";
-import { typeDefs } from "./src/schema/index.js";
-import { resolvers } from "./src/resolvers/index.js";
+import { typeDefs } from "./schema/index.js";
+import { resolvers } from "./resolvers/index.js";
 
 const app = express();
 const httpServer = http.createServer(app);
