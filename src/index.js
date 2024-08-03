@@ -28,9 +28,7 @@ app.use(
 	}),
 	express.json(),
 	expressMiddleware(server, {
-		context: async ({ req, res }) => {
-			return {};
-		},
+		context: async ({ req }) => ({ token: req.headers.token }),
 	})
 );
 
