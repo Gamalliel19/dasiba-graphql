@@ -18,7 +18,21 @@ const server = new ApolloServer({
 
 await server.start();
 
-app.use("/", cors(), express.json(), expressMiddleware(server));
+app.use(
+	"/",
+	cors({
+		methods: ["GET", "POST", "OPTIONS"],
+		credentials: true,
+		maxAge: 600,
+		origin: ["http://example.com", "https://studio.apollographql.com"],
+	}),
+	express.json(),
+	expressMiddleware(server, {
+		context: async ({ req, res }) => {
+			return {};
+		},
+	})
+);
 
 await new Promise((resolve) => httpServer.listen({ port: 5000 }, resolve));
 
