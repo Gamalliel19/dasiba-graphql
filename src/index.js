@@ -18,14 +18,7 @@ const server = new ApolloServer({
 
 await server.start();
 
-app.use(
-	"/",
-	cors(),
-	express.json(),
-	expressMiddleware(server, {
-		context: async ({ req }) => ({ token: req.headers.token }),
-	})
-);
+app.use("/", cors(), express.json(), expressMiddleware(server));
 
 await new Promise((resolve) => httpServer.listen({ port: 5000 }, resolve));
 
